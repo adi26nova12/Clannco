@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clannco Design System v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ── Core palette ── */
+  --forest:#1E4B38;
+  --forest-deep:#143528;
+  --forest-ink:#0D241B;
+  --brass:#C9A24A;
+  --brass-soft:#D9BC7A;
+  --cream:#F3EFE2;
+  --cream-paper:#FAF8F0;
+  --ink:#1A1F1C;
+  --ink-soft:#4A554F;
+  --line:#DED8C4;
+  --white:#FFFFFF;
+
+  /* ── Semantic ── */
+  --success:#2E7D52;
+  --warning:#B8860B;
+  --error:#A63D2F;
+  --info:#3B6E8F;
+
+  /* ── Type ── */
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+
+  /* ── Spacing scale ── */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+
+  /* ── Radii ── */
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-pill:999px;
+
+  /* ── Shadow ── */
+  --shadow-card:0 2px 12px rgba(13,36,27,.08);
+  --shadow-raised:0 8px 32px rgba(13,36,27,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.6;}
+
+/* ── Layout ── */
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--s5);}
+section{padding:var(--s8) 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+
+/* ── Header ── */
+header{background:var(--forest);color:var(--cream);padding:var(--s8) 0 var(--s7);}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:var(--s3);}
+header h1{font-family:var(--font-display);font-weight:700;font-size:64px;line-height:1;letter-spacing:.01em;text-transform:uppercase;}
+header p{margin-top:var(--s4);max-width:560px;color:rgba(243,239,226,.75);font-size:17px;}
+.version{display:inline-block;margin-top:var(--s5);font-family:var(--font-mono);font-size:12px;color:var(--brass-soft);border:1px solid rgba(201,162,74,.4);border-radius:var(--r-pill);padding:4px 14px;}
+
+/* ── Section titles ── */
+h2{font-family:var(--font-display);font-weight:600;font-size:34px;text-transform:uppercase;letter-spacing:.02em;color:var(--forest);margin-bottom:var(--s2);}
+.sub{color:var(--ink-soft);max-width:640px;margin-bottom:var(--s6);font-size:15px;}
+h3{font-family:var(--font-display);font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin:var(--s6) 0 var(--s4);}
+
+/* ── Swatches ── */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--s4);}
+.swatch{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line);background:var(--white);}
+.swatch .chip{height:96px;}
+.swatch .meta{padding:var(--s3) var(--s4);}
+.swatch .name{font-weight:600;font-size:14px;}
+.swatch .hex{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);}
+.swatch .use{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+/* ── Type specimens ── */
+.spec{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s5);margin-bottom:var(--s4);}
+.spec .tag{font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--s2);display:block;}
+.t-h1{font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1.05;text-transform:uppercase;color:var(--forest);}
+.t-h2{font-family:var(--font-display);font-weight:600;font-size:36px;line-height:1.1;text-transform:uppercase;color:var(--forest);}
+.t-h3{font-family:var(--font-display);font-weight:600;font-size:24px;line-height:1.2;text-transform:uppercase;color:var(--forest);}
+.t-body{font-family:var(--font-body);font-size:16px;color:var(--ink);}
+.t-small{font-family:var(--font-body);font-size:13px;color:var(--ink-soft);}
+.t-mono{font-family:var(--font-mono);font-size:13px;color:var(--forest);}
+
+/* ── Buttons ── */
+.row{display:flex;flex-wrap:wrap;gap:var(--s4);align-items:center;}
+.btn{font-family:var(--font-body);font-weight:600;font-size:15px;padding:12px 28px;border-radius:var(--r-sm);border:none;cursor:pointer;letter-spacing:.02em;transition:all .18s ease;}
+.btn-primary{background:var(--brass);color:var(--forest-ink);}
+.btn-primary:hover{background:var(--brass-soft);}
+.btn-secondary{background:var(--forest);color:var(--cream);}
+.btn-secondary:hover{background:var(--forest-deep);}
+.btn-outline{background:transparent;color:var(--forest);border:1.5px solid var(--forest);}
+.btn-outline:hover{background:var(--forest);color:var(--cream);}
+.btn-ghost{background:transparent;color:var(--forest);text-decoration:underline;text-underline-offset:4px;padding:12px 8px;}
+
+/* ── Badges ── */
+.badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:var(--r-pill);font-weight:500;}
+.badge-verified{background:rgba(46,125,82,.12);color:var(--success);border:1px solid rgba(46,125,82,.3);}
+.badge-modeled{background:rgba(184,134,11,.1);color:var(--warning);border:1px solid rgba(184,134,11,.3);}
+.badge-unconfirmed{background:rgba(166,61,47,.08);color:var(--error);border:1px solid rgba(166,61,47,.28);}
+.badge-brass{background:var(--brass);color:var(--forest-ink);border:none;}
+.badge-forest{background:var(--forest);color:var(--cream);border:none;}
+
+/* ── Cards ── */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s4);}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s5);box-shadow:var(--shadow-card);}
+.card .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:var(--s2);}
+.card h4{font-family:var(--font-display);font-size:22px;font-weight:600;text-transform:uppercase;color:var(--forest);margin-bottom:var(--s2);}
+.card p{font-size:14px;color:var(--ink-soft);}
+.card-dark{background:var(--forest);border-color:var(--forest-deep);}
+.card-dark h4{color:var(--cream);}
+.card-dark p{color:rgba(243,239,226,.7);}
+
+/* ── Stat block ── */
+.stat{border-left:3px solid var(--brass);padding-left:var(--s4);}
+.stat .num{font-family:var(--font-display);font-weight:700;font-size:44px;color:var(--forest);line-height:1;}
+.stat .lbl{font-size:13px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
+
+/* ── Table ── */
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;font-size:14px;}
+th{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:left;background:var(--forest);color:var(--cream);padding:var(--s3) var(--s4);}
+td{padding:var(--s3) var(--s4);border-top:1px solid var(--line);}
+td code, .code-inline{font-family:var(--font-mono);font-size:12px;background:var(--cream);padding:2px 8px;border-radius:var(--r-sm);color:var(--forest);}
+
+/* ── Code block ── */
+pre{background:var(--forest-ink);color:var(--cream);font-family:var(--font-mono);font-size:13px;line-height:1.7;padding:var(--s5);border-radius:var(--r-md);overflow-x:auto;}
+pre .c{color:rgba(243,239,226,.45)}
+pre .v{color:var(--brass-soft)}
+
+/* ── Do / Don't ── */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);}
+.dd .box{border-radius:var(--r-md);padding:var(--s4) var(--s5);background:var(--white);border:1px solid var(--line);}
+.dd .box.do{border-top:3px solid var(--success);}
+.dd .box.dont{border-top:3px solid var(--error);}
+.dd .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:var(--s2);}
+.dd .do .lbl{color:var(--success)}
+.dd .dont .lbl{color:var(--error)}
+.dd ul{list-style:none;}
+.dd li{font-size:14px;padding:5px 0;color:var(--ink-soft);}
+.dd li::before{content:"— ";color:var(--brass);}
+
+footer{background:var(--forest);color:rgba(243,239,226,.6);padding:var(--s6) 0;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;}
+footer strong{color:var(--brass);}
+@media(max-width:640px){
+  header h1{font-size:42px}
+  .dd{grid-template-columns:1fr}
+  .t-h1{font-size:38px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Internal Reference · Brand & UI</div>
+    <h1>Clannco Design System</h1>
+    <p>The single source of truth for how Clannco looks, reads, and builds. Applies to the website, proposals, client documents, dashboards, social, and email.</p>
+    <span class="version">v1.0 — July 2026</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ══════════ COLOR ══════════ -->
+<section id="color">
+  <h2>01 · Color</h2>
+  <p class="sub">Forest green is the brand. Brass is the signal — use it for CTAs, key data, and accents only. Cream is the canvas. If a page is more than ~10% brass, it's wrong.</p>
+
+  <h3>Core Palette</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="chip" style="background:#1E4B38"></div><div class="meta"><div class="name">Forest</div><div class="hex">#1E4B38 · --forest</div><div class="use">Primary brand, headers, dark sections</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#143528"></div><div class="meta"><div class="name">Forest Deep</div><div class="hex">#143528 · --forest-deep</div><div class="use">Hover states, gradients into forest</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#0D241B"></div><div class="meta"><div class="name">Forest Ink</div><div class="hex">#0D241B · --forest-ink</div><div class="use">Code blocks, text on brass</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#C9A24A"></div><div class="meta"><div class="name">Brass</div><div class="hex">#C9A24A · --brass</div><div class="use">CTAs, accents, key numbers. Sparingly.</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#D9BC7A"></div><div class="meta"><div class="name">Brass Soft</div><div class="hex">#D9BC7A · --brass-soft</div><div class="use">Brass hover, accents on dark bg</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F3EFE2"></div><div class="meta"><div class="name">Cream</div><div class="hex">#F3EFE2 · --cream</div><div class="use">Default page background</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#FAF8F0;border-bottom:1px solid #DED8C4"></div><div class="meta"><div class="name">Cream Paper</div><div class="hex">#FAF8F0 · --cream-paper</div><div class="use">Cards on cream, alt sections</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1A1F1C"></div><div class="meta"><div class="name">Ink</div><div class="hex">#1A1F1C · --ink</div><div class="use">Body text on light backgrounds</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#4A554F"></div><div class="meta"><div class="name">Ink Soft</div><div class="hex">#4A554F · --ink-soft</div><div class="use">Secondary text, captions</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#DED8C4"></div><div class="meta"><div class="name">Line</div><div class="hex">#DED8C4 · --line</div><div class="use">Borders, dividers, table rules</div></div></div>
+  </div>
+
+  <h3>Semantic Colors</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="chip" style="background:#2E7D52"></div><div class="meta"><div class="name">Success / Verified</div><div class="hex">#2E7D52 · --success</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#B8860B"></div><div class="meta"><div class="name">Warning / Modeled</div><div class="hex">#B8860B · --warning</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#A63D2F"></div><div class="meta"><div class="name">Error / Unconfirmed</div><div class="hex">#A63D2F · --error</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#3B6E8F"></div><div class="meta"><div class="name">Info</div><div class="hex">#3B6E8F · --info</div></div></div>
+  </div>
+
+  <h3>Pairing Rules</h3>
+  <table>
+    <tr><th>Background</th><th>Text</th><th>Accent</th><th>Use</th></tr>
+    <tr><td>Cream <code>#F3EFE2</code></td><td>Ink <code>#1A1F1C</code></td><td>Forest + Brass</td><td>Default light sections</td></tr>
+    <tr><td>Forest <code>#1E4B38</code></td><td>Cream <code>#F3EFE2</code></td><td>Brass Soft</td><td>Heroes, headers, dark sections</td></tr>
+    <tr><td>Brass <code>#C9A24A</code></td><td>Forest Ink <code>#0D241B</code></td><td>—</td><td>Primary buttons only</td></tr>
+    <tr><td>White <code>#FFFFFF</code></td><td>Ink</td><td>Forest + Brass</td><td>Cards on cream</td></tr>
+  </table>
+  <p class="t-small" style="margin-top:12px">Never: brass text on cream (fails contrast), forest text on brass at small sizes, white sections directly against cream without a border.</p>
+</section>
+
+<!-- ══════════ TYPOGRAPHY ══════════ -->
+<section id="type">
+  <h2>02 · Typography</h2>
+  <p class="sub">Three families, three jobs. Barlow Condensed for headlines — always uppercase, always heavy. Barlow for everything readable. JetBrains Mono for labels, data, and anything technical.</p>
+
+  <div class="spec"><span class="tag">Display / H1 — Barlow Condensed 700 · 48–72px · uppercase · line-height 1.05</span>
+    <div class="t-h1">Scale Without Scaling Headcount</div></div>
+  <div class="spec"><span class="tag">H2 — Barlow Condensed 600 · 32–40px · uppercase</span>
+    <div class="t-h2">Automation That Pays For Itself</div></div>
+  <div class="spec"><span class="tag">H3 — Barlow Condensed 600 · 22–26px · uppercase</span>
+    <div class="t-h3">Weekly Intelligence Dockets</div></div>
+  <div class="spec"><span class="tag">Body — Barlow 400 · 15–17px · line-height 1.6</span>
+    <div class="t-body">We build business operating systems that eliminate manual work, improve decision making, and increase revenue. Every system is designed around one question: what would remove this bottleneck forever?</div></div>
+  <div class="spec"><span class="tag">Small / Caption — Barlow 400 · 13px · Ink Soft</span>
+    <div class="t-small">Estimates based on modeled data. Verified figures are marked in every report.</div></div>
+  <div class="spec"><span class="tag">Mono / Label — JetBrains Mono 500 · 11–13px · letter-spacing .1em · uppercase for labels</span>
+    <div class="t-mono">PIPELINE HYGIENE SCAN · RUN #142 · 07 JUL 2026</div></div>
+
+  <h3>Type Rules</h3>
+  <div class="dd">
+    <div class="box do"><div class="lbl">Do</div><ul>
+      <li>Uppercase all Barlow Condensed headings</li>
+      <li>Use mono eyebrows above headings (brass, letterspaced)</li>
+      <li>Keep body copy at 15–17px, max ~65ch line length</li>
+      <li>Use mono for numbers in tables and stats</li>
+    </ul></div>
+    <div class="box dont"><div class="lbl">Don't</div><ul>
+      <li>Use Barlow Condensed for body text</li>
+      <li>Mix a fourth typeface — ever</li>
+      <li>Set headings in sentence case</li>
+      <li>Use italics (not in the system)</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ══════════ COMPONENTS ══════════ -->
+<section id="components">
+  <h2>03 · Components</h2>
+  <p class="sub">Standard patterns for web, proposals, and dashboards.</p>
+
+  <h3>Buttons</h3>
+  <div class="row">
+    <button class="btn btn-primary">Book an Audit</button>
+    <button class="btn btn-secondary">See How It Works</button>
+    <button class="btn btn-outline">View Breakdown</button>
+    <button class="btn btn-ghost">Learn more</button>
+  </div>
+  <p class="t-small" style="margin-top:12px">One brass primary per view. Radius 4px — Clannco buttons are square-ish, not pills. Verbs, not nouns: "Book an Audit", not "Contact".</p>
+
+  <h3>Badges — incl. Data Confidence Tiers</h3>
+  <div class="row">
+    <span class="badge badge-verified">Verified</span>
+    <span class="badge badge-modeled">Modeled</span>
+    <span class="badge badge-unconfirmed">Unconfirmed</span>
+    <span class="badge badge-brass">New</span>
+    <span class="badge badge-forest">Automation</span>
+  </div>
+  <p class="t-small" style="margin-top:12px">The three-tier confidence badges (Verified / Modeled / Unconfirmed) are mandatory in every intelligence deliverable.</p>
+
+  <h3>Cards</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="k">CRM Automation</div>
+      <h4>Pipeline Hygiene</h4>
+      <p>Nightly scan flags stale deals, missing fields, and unassigned leads — pushed to WhatsApp before the workday starts.</p>
+    </div>
+    <div class="card card-dark">
+      <div class="k">Voice</div>
+      <h4>AI Receptionist</h4>
+      <p>Every call answered, qualified, and logged to the CRM. No missed leads, no voicemail graveyard.</p>
+    </div>
+    <div class="card">
+      <div class="k">Intelligence</div>
+      <h4>Weekly Dockets</h4>
+      <p>Researched, scored, and ranked targets delivered every Monday — with confidence tiers on every data point.</p>
+    </div>
+  </div>
+
+  <h3>Stat Block</h3>
+  <div class="row" style="gap:48px">
+    <div class="stat"><div class="num">30+</div><div class="lbl">Hours saved / week</div></div>
+    <div class="stat"><div class="num">24/7</div><div class="lbl">Call coverage</div></div>
+    <div class="stat"><div class="num">&lt; 60s</div><div class="lbl">Lead response time</div></div>
+  </div>
+
+  <h3>Tables</h3>
+  <table>
+    <tr><th>Deliverable</th><th>Cadence</th><th>Owner</th><th>Status</th></tr>
+    <tr><td>Target docket</td><td><span class="code-inline">weekly</span></td><td>Clannco</td><td><span class="badge badge-verified">Live</span></td></tr>
+    <tr><td>CRM hygiene scan</td><td><span class="code-inline">nightly</span></td><td>Automated</td><td><span class="badge badge-modeled">Testing</span></td></tr>
+  </table>
+</section>
+
+<!-- ══════════ TOKENS ══════════ -->
+<section id="tokens">
+  <h2>04 · Tokens (Copy-Paste)</h2>
+  <p class="sub">Drop this at the top of any Clannco HTML deliverable. Every color and size in this document derives from these variables.</p>
+<pre>:root{
+  <span class="c">/* palette */</span>
+  --forest:<span class="v">#1E4B38</span>;  --forest-deep:<span class="v">#143528</span>;  --forest-ink:<span class="v">#0D241B</span>;
+  --brass:<span class="v">#C9A24A</span>;   --brass-soft:<span class="v">#D9BC7A</span>;
+  --cream:<span class="v">#F3EFE2</span>;   --cream-paper:<span class="v">#FAF8F0</span>;
+  --ink:<span class="v">#1A1F1C</span>;     --ink-soft:<span class="v">#4A554F</span>;     --line:<span class="v">#DED8C4</span>;
+  --success:<span class="v">#2E7D52</span>; --warning:<span class="v">#B8860B</span>; --error:<span class="v">#A63D2F</span>; --info:<span class="v">#3B6E8F</span>;
+
+  <span class="c">/* type */</span>
+  --font-display:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+
+  <span class="c">/* spacing (4px base) */</span>
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px;
+  --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+
+  <span class="c">/* radii + shadow */</span>
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-pill:999px;
+  --shadow-card:0 2px 12px rgba(13,36,27,.08);
+  --shadow-raised:0 8px 32px rgba(13,36,27,.14);
+}</pre>
+<p class="t-small" style="margin-top:12px">Google Fonts import: <span class="code-inline">Barlow+Condensed:500,600,700 · Barlow:400–700 · JetBrains+Mono:400–600</span></p>
+</section>
+
+<!-- ══════════ VOICE ══════════ -->
+<section id="voice">
+  <h2>05 · Voice</h2>
+  <p class="sub">Copy is part of the design system. Clannco speaks like an experienced operator, not a startup.</p>
+  <div class="dd">
+    <div class="box do"><div class="lbl">Do</div><ul>
+      <li>Lead with outcomes: hours saved, leads captured, revenue protected</li>
+      <li>Be specific: "nightly hygiene scan", not "smart automation"</li>
+      <li>State uncertainty plainly — confidence tiers exist for a reason</li>
+      <li>Short sentences. Concrete verbs.</li>
+    </ul></div>
+    <div class="box dont"><div class="lbl">Don't</div><ul>
+      <li>"Revolutionary", "cutting-edge", "game-changing"</li>
+      <li>Sell technology instead of outcomes</li>
+      <li>Imply client results that don't exist — capability proof only until signed</li>
+      <li>Exclamation marks</li>
+    </ul></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap"><strong>CLANNCO</strong> · DESIGN SYSTEM v1.0 · INTERNAL · JUL 2026</div>
+</footer>
+
+</body>
+</html>
