@@ -1513,67 +1513,11 @@ body::after{
 }
 
 /* Conversational Multi-Step Form */
-.form-step-header-container {
-  margin-bottom: 18px;
-}
-.form-progress-bar-wrap {
-  width: 100%;
-  height: 6px;
-  background: rgba(120,120,120,.18);
-  border-radius: 999px;
-  margin-bottom: 12px;
-  overflow: hidden;
-}
-.form-progress-bar-fill {
-  height: 100%;
-  width: 25%;
-  background: linear-gradient(90deg, #E6C766, #C9A24A);
-  border-radius: 999px;
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.form-step-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.form-step-counter {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: var(--brass-2, #E6C766);
-  background: rgba(230,199,102,.12);
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-.form-step-nav-dots {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-.form-step-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(243,239,226,.25);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-.form-step-dot.is-active {
-  background: var(--brass-2, #E6C766);
-  width: 20px;
-  border-radius: 999px;
-}
-.form-step-dot.is-completed {
-  background: var(--cream, #F3EFE2);
-}
-
 .completed-steps-summary {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 12px;
+  margin-bottom: 14px;
 }
 .completed-step-pill {
   display: flex;
@@ -1614,12 +1558,8 @@ body::after{
 }
 
 /* Light form overrides for .audit-form */
-.audit-form .form-step-counter {
-  color: var(--forest);
-  background: rgba(13,31,23,.08);
-}
 .audit-form .completed-step-pill {
-  background: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.7);
   border-color: rgba(13,31,23,.2);
   color: var(--forest);
 }
@@ -1627,31 +1567,22 @@ body::after{
   background: var(--forest);
   color: var(--cream);
 }
-.audit-form .form-step-dot {
-  background: rgba(13,31,23,.2);
-}
-.audit-form .form-step-dot.is-active {
-  background: var(--brass);
-}
-.audit-form .form-step-dot.is-completed {
-  background: var(--forest);
-}
 
 .step-item {
   display: none;
   opacity: 0;
-  transform: translateY(14px) scale(0.98);
+  transform: translateY(12px) scale(0.98);
 }
 .step-item.is-active {
   display: block;
   opacity: 1;
   transform: translateY(0) scale(1);
-  animation: stepPopIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: stepPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes stepPopIn {
   from {
     opacity: 0;
-    transform: translateY(16px) scale(0.97);
+    transform: translateY(14px) scale(0.97);
   }
   to {
     opacity: 1;
@@ -1673,11 +1604,11 @@ body::after{
   background: var(--brass-2, #E6C766);
   color: var(--forest, #0D1F17);
   border: none;
-  padding: 12px 22px;
-  border-radius: 14px;
+  padding: 11px 20px;
+  border-radius: 12px;
   font-family: var(--body);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
@@ -1740,6 +1671,62 @@ body::after{
   0%, 100% { transform: translateX(0); }
   20%, 60% { transform: translateX(-6px); }
   40%, 80% { transform: translateX(6px); }
+}
+
+/* Interactive Choice Pills */
+.choice-pills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.choice-pill {
+  background: rgba(13,31,23,.06);
+  border: 1px solid rgba(13,31,23,.16);
+  border-radius: 12px;
+  padding: 9px 13px;
+  font-family: var(--body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--forest);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+.choice-pill:hover {
+  background: rgba(201,162,74,.18);
+  border-color: var(--brass);
+  transform: translateY(-1px);
+}
+.choice-pill.is-selected {
+  background: var(--forest);
+  color: var(--cream);
+  border-color: var(--forest);
+}
+
+.contact-form .choice-pill {
+  background: rgba(243,239,226,.08);
+  border-color: rgba(243,239,226,.2);
+  color: var(--cream);
+}
+.contact-form .choice-pill:hover {
+  background: rgba(230,199,102,.2);
+  border-color: var(--brass-2);
+}
+.contact-form .choice-pill.is-selected {
+  background: var(--brass-2);
+  color: var(--forest);
+  border-color: var(--brass-2);
+}
+
+/* Compact form box size */
+.audit-form, .contact-form {
+  padding: 24px 26px !important;
+  border-radius: 28px !important;
+}
+.audit-form h3, .contact-form h3 {
+  font-size: 2.2rem !important;
+  margin-bottom: 14px !important;
 }
 
 /* footer */
@@ -4030,41 +4017,17 @@ html{overflow-x:clip}
     const submitBtn = formGrid.querySelector('button[type="submit"]');
     if (!fields.length) return;
 
-    // Header container with progress bar, step counter and completed pills
+    // Completed summary right below h3 (no step counter header or progress bar)
     const h3 = form.querySelector('h3');
-    const headerWrap = document.createElement('div');
-    headerWrap.className = 'form-step-header-container';
-    headerWrap.innerHTML = `
-      <div class="form-progress-bar-wrap">
-        <div class="form-progress-bar-fill" class="formProgressFill"></div>
-      </div>
-      <div class="form-step-header">
-        <span class="form-step-counter" class="formStepCounter">Step 1 of ${fields.length}</span>
-        <div class="form-step-nav-dots" class="formStepDots"></div>
-      </div>
-      <div class="completed-steps-summary" class="completedSummary"></div>
-    `;
+    const completedSummary = document.createElement('div');
+    completedSummary.className = 'completed-steps-summary';
+
     if (h3) {
-      h3.after(headerWrap);
+      h3.after(completedSummary);
     } else {
-      formGrid.before(headerWrap);
+      formGrid.before(completedSummary);
     }
 
-    const progressFill = headerWrap.querySelector('.form-progress-bar-fill');
-    const stepCounter = headerWrap.querySelector('.form-step-counter');
-    const stepDots = headerWrap.querySelector('.form-step-nav-dots');
-    const completedSummary = headerWrap.querySelector('.completed-steps-summary');
-
-    // Dots navigation
-    fields.forEach((_, idx) => {
-      const dot = document.createElement('div');
-      dot.className = `form-step-dot ${idx === 0 ? 'is-active' : ''}`;
-      dot.dataset.stepIndex = idx;
-      dot.addEventListener('click', () => goToStep(idx));
-      stepDots.appendChild(dot);
-    });
-
-    // Wrap fields in step containers
     const stepItems = [];
     fields.forEach((field, idx) => {
       const stepDiv = document.createElement('div');
@@ -4073,6 +4036,37 @@ html{overflow-x:clip}
 
       field.parentNode.insertBefore(stepDiv, field);
       stepDiv.appendChild(field);
+
+      // Check if field has select -> turn into interactive choice pills
+      const selectInput = field.querySelector('select');
+      if (selectInput) {
+        selectInput.style.display = 'none';
+
+        const pillsGrid = document.createElement('div');
+        pillsGrid.className = 'choice-pills-grid';
+
+        Array.from(selectInput.options).forEach((opt) => {
+          if (!opt.value && opt.text.includes('?')) return;
+          if (opt.value === '' && opt.disabled) return;
+
+          const pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className = `choice-pill ${selectInput.value === opt.value ? 'is-selected' : ''}`;
+          pill.innerText = opt.text;
+
+          pill.addEventListener('click', () => {
+            selectInput.value = opt.value || opt.text;
+            pillsGrid.querySelectorAll('.choice-pill').forEach(p => p.classList.remove('is-selected'));
+            pill.classList.add('is-selected');
+
+            setTimeout(() => {
+              validateAndNext(idx);
+            }, 180);
+          });
+          pillsGrid.appendChild(pill);
+        });
+        field.appendChild(pillsGrid);
+      }
 
       const isLast = idx === fields.length - 1;
       const actionBar = document.createElement('div');
@@ -4093,11 +4087,11 @@ html{overflow-x:clip}
         }
       } else {
         const backBtnHtml = idx > 0 ? `<button type="button" class="btn-step-back">← Back</button>` : `<span></span>`;
+        const hideNext = !!selectInput;
         actionBar.innerHTML = `
           ${backBtnHtml}
           <div style="display:flex;align-items:center;gap:8px;">
-            <span class="keyboard-hint"><kbd>Enter ↵</kbd></span>
-            <button type="button" class="btn-step-next">Next →</button>
+            ${hideNext ? '' : '<span class="keyboard-hint"><kbd>Enter ↵</kbd></span><button type="button" class="btn-step-next">Next →</button>'}
           </div>
         `;
         
@@ -4114,54 +4108,31 @@ html{overflow-x:clip}
       stepDiv.appendChild(actionBar);
       stepItems.push(stepDiv);
 
-      const input = field.querySelector('input, select, textarea');
+      const input = field.querySelector('input, textarea');
       if (input) {
         input.addEventListener('keydown', (e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
             if (isLast) {
               if (validateStep(idx)) {
-                if (form.requestSubmit) {
-                  form.requestSubmit();
-                } else {
-                  form.submit();
-                }
+                if (form.requestSubmit) form.requestSubmit();
+                else form.submit();
               }
             } else {
               validateAndNext(idx);
             }
           }
         });
-
-        if (input.tagName.toLowerCase() === 'select') {
-          input.addEventListener('change', () => {
-            if (input.value.trim() !== '' && !isLast) {
-              setTimeout(() => {
-                validateAndNext(idx);
-              }, 250);
-            }
-          });
-        }
       }
     });
 
     let currentStep = 0;
 
     function updateUI() {
-      const pct = Math.round(((currentStep + 1) / fields.length) * 100);
-      if (progressFill) progressFill.style.width = `${pct}%`;
-      if (stepCounter) stepCounter.innerText = `Step ${currentStep + 1} of ${fields.length}`;
-
-      const dots = stepDots.querySelectorAll('.form-step-dot');
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle('is-active', idx === currentStep);
-        dot.classList.toggle('is-completed', idx < currentStep);
-      });
-
       stepItems.forEach((step, idx) => {
         step.classList.toggle('is-active', idx === currentStep);
         if (idx === currentStep) {
-          const inp = step.querySelector('input, select, textarea');
+          const inp = step.querySelector('input, textarea');
           if (inp) {
             setTimeout(() => inp.focus(), 80);
           }
@@ -4181,7 +4152,7 @@ html{overflow-x:clip}
           valText = inputEl.options[inputEl.selectedIndex]?.text || valText;
         }
 
-        if (valText) {
+        if (valText && !valText.includes('What kind') && !valText.includes('Select a')) {
           const pill = document.createElement('div');
           pill.className = 'completed-step-pill';
           pill.innerHTML = `
@@ -4202,11 +4173,14 @@ html{overflow-x:clip}
       const input = field.querySelector('input, select, textarea');
       if (!input) return true;
 
-      if (input.hasAttribute('required') && !input.value.trim()) {
+      const val = input.value.trim();
+      const isSelectPlaceholder = input.tagName.toLowerCase() === 'select' && (!val || val.includes('What kind') || val.includes('Select a'));
+
+      if (input.hasAttribute('required') && (!val || isSelectPlaceholder)) {
         input.classList.remove('input-error-shake');
-        void input.offsetWidth; // trigger reflow
+        void input.offsetWidth;
         input.classList.add('input-error-shake');
-        input.focus();
+        if (input.style.display !== 'none') input.focus();
         setTimeout(() => {
           input.classList.remove('input-error-shake');
         }, 1000);
@@ -4243,7 +4217,6 @@ html{overflow-x:clip}
   document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.audit-form, .contact-form').forEach(initConversationalForm);
   });
-  // Also run immediately if DOM is already ready
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
     document.querySelectorAll('.audit-form, .contact-form').forEach(initConversationalForm);
   }
