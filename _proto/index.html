@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Clannco — redesign prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/clannco.css">
+<link rel="stylesheet" href="/_proto/proto.css">
+<script>document.documentElement.classList.add('has-js');</script>
+</head>
+<body>
+
+<!-- STAGE + HUD: outside the page container, persistent across pages -->
+<div class="stage" aria-hidden="true"><div class="stage-poster"></div></div>
+<div class="hud" aria-hidden="true">
+  <span class="hud-corner tl"></span><span class="hud-corner tr"></span><span class="hud-corner bl"></span><span class="hud-corner br"></span>
+  <div class="hud-status"><i></i><span>System online</span><span class="hud-clock">00:00:00</span></div>
+  <div class="hud-rail"></div>
+</div>
+
+<nav class="pnav">
+  <a href="#top" class="logo" aria-label="Clannco home">
+    <span class="logo-mark"><svg class="clannco-logo-svg" viewBox="0 0 1080 1080" aria-hidden="true" focusable="false">
+  <g fill="none" stroke-linecap="square" stroke-linejoin="round">
+    <path class="logo-c" d="M760 250C682 176 557 150 444 180C263 228 152 397 180 584C209 778 383 907 577 876C660 863 731 822 782 764"/>
+    <path class="logo-pin" d="M540 300C640 300 718 378 718 478C718 622 540 788 540 788C540 788 362 622 362 478C362 378 440 300 540 300Z"/>
+    <circle class="logo-pin-fill" cx="540" cy="478" r="62"/>
+    <path class="logo-knot" d="M250 720L394 864L540 718L686 864L830 720"/>
+    <path class="logo-knot logo-knot-thin" d="M368 830L500 698M580 698L712 830"/>
+  </g>
+</svg></span>
+    <span>Clannco</span>
+  </a>
+  <div class="pnav-index" aria-hidden="true"><b class="pnav-num">01</b><span class="pnav-sep"></span><span class="pnav-label">Hero</span></div>
+  <div class="pnav-right">
+    <button class="pnav-menu" type="button" aria-expanded="false" aria-controls="pmenu"><span class="pnav-menu-bars"></span><span>Menu</span></button>
+    <a href="#contact" class="btn btn-primary pnav-cta"><span class="btn-label">Book a call ↗</span></a>
+  </div>
+</nav>
+
+<div class="pmenu" id="pmenu" hidden>
+  <div class="pmenu-inner">
+    <div class="pmenu-col">
+      <div class="hud-label" aria-hidden="true">[ Automation ]</div>
+      <a href="/automation/"><b>All Automation</b><span>Everything we build ↗</span></a>
+      <a href="/automation/real-estate">Real Estate Acquisitions<span>Deal sourcing, scoring, CRM</span></a>
+      <a href="/automation/property-management">Property Management<span>Tenants, maintenance, renewals</span></a>
+      <a href="/automation/title-companies">Title Companies<span>Status, documents, closings</span></a>
+      <a href="/automation/real-estate-investors">Real Estate Investors<span>Deal flow, market intel</span></a>
+      <a href="/automation/professional-services">Professional Services<span>Intake, scheduling, CRM</span></a>
+      <a href="/automation/agencies">Agencies<span>Reporting, routing, onboarding</span></a>
+    </div>
+    <div class="pmenu-col pmenu-sections">
+      <div class="hud-label" aria-hidden="true">[ Sections ]</div>
+      <a href="#segments">Segments</a>
+      <a href="#system">Growth Systems</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- 01 HERO -->
+  <section class="phero" data-scene="core" data-hud="Hero">
+    <div class="phero-badge hud-label">AI Automation &amp; Operational Intelligence</div>
+
+    <h1 class="display phero-h1">
+      <span class="phero-l1">Most of what eats your week </span>
+      <span class="outline phero-l2">doesn't need a human. </span>
+      <span class="phero-l3">It needs <span class="brass">a system.</span></span>
+    </h1>
+
+    <div class="phero-panel glass">
+      <p class="lead">Scale the business, not the headcount. Clannco builds the systems that run your business without you standing over them — deal sourcing, lead scoring, follow-up, booking, and the CRM to track it all. The repetitive work that fills your day runs on its own, so your team spends their time where it actually counts.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary magnetic">Book a discovery call</a>
+        <a href="#contact" class="btn btn-ghost">Tell us what's slowing you down</a>
+      </div>
+      <p class="hero-note">A real reply within 24 hours — from the people who'll build it, not a sales rep.</p>
+    </div>
+
+    <aside class="signal-card glass" aria-label="Operations dashboard preview">
+      <div class="signal-inner">
+        <div class="signal-top">
+          <h2>Your<br>Operations</h2>
+          <div class="live-pill">Right now</div>
+        </div>
+        <div class="map">
+          <div class="route"></div>
+          <div class="pin one"></div>
+          <div class="pin two"></div>
+          <div class="pin three"></div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric">
+            <strong>24/7</strong>
+            <span>Systems running whether you're online or not</span>
+          </div>
+          <div class="metric">
+            <strong>5–7</strong>
+            <span>Days to go live</span>
+          </div>
+        </div>
+        <div class="search-card">
+          <div class="search-query"><span></span> this week's pipeline</div>
+          <div class="rank-bars">
+            <div class="rank-bar" style="--w:92%"><b>Inquiries responded to instantly</b></div>
+            <div class="rank-bar" style="--w:78%"><b>Follow-ups sent automatically</b></div>
+            <div class="rank-bar" style="--w:65%"><b>Leads scored & routed</b></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="phero-cue" aria-hidden="true"><span>Scroll to assemble</span><i></i></div>
+  </section>
+
+  <!-- 02 WHY CLANNCO -->
+  <section class="pwhy" id="why" data-scene="network" data-hud="Why Clannco">
+    <div class="pwhy-pin">
+      <div class="eyebrow">Why Clannco</div>
+      <h2 class="display pwhy-h2">Everyone sells you a tool.<br>We hand you a system that runs without you.</h2>
+      <div class="pwhy-cards">
+        <p class="glass pwhy-card">You didn't start this business to answer the same DM forty times a day. But that's where you are — replying to bookings at midnight, chasing leads that went cold, re-typing the same appointment into three different apps. That's not running a business. That's being the most expensive employee in it.</p>
+        <p class="glass pwhy-card">Every hour you spend doing what a system could do for you is an hour you're not spending growing the thing, fixing the thing, or just having a life outside it. Front desk, follow-ups, reviews, lead chasing, deal tracking — if it's repetitive, if it's the same conversation on loop, it can run without you touching it.</p>
+        <p class="glass pwhy-card">We don't sell you software and disappear. We build the system, we test it before it touches a real customer, and we keep it running after — so the only decision left for you is what you do with the time it just gave back.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 OUTCOME STRIP -->
+  <section class="poutcome" data-scene="pillars" data-hud="Outcomes">
+    <div class="poutcome-item">
+      <div class="outcome-num" data-count>30+</div>
+      <div class="outcome-label">Hours of manual work a week a system can take off your plate</div>
+    </div>
+    <div class="poutcome-item">
+      <div class="outcome-num">24/7</div>
+      <div class="outcome-label">Every call answered, every lead chased — online or not</div>
+    </div>
+    <div class="poutcome-item">
+      <div class="outcome-num" data-count>0</div>
+      <div class="outcome-label">Leads lost because nobody followed up in time</div>
+    </div>
+  </section>
+
+  <section class="pend" data-scene="calm" data-hud="Next">
+    <p class="hud-label" aria-hidden="true">[ Prototype ends here — sections 04–15 follow the same system ]</p>
+  </section>
+</main>
+
+<script src="/assets/js/vendor/gsap-3.13.0.min.js"></script>
+<script src="/assets/js/vendor/ScrollTrigger-3.13.0.min.js"></script>
+<script src="/assets/js/vendor/lenis-1.1.14.min.js"></script>
+<script src="/assets/js/vendor/SplitText-3.13.0.min.js"></script>
+<script src="/assets/js/vendor/CustomEase-3.13.0.min.js"></script>
+<script type="module" src="/_proto/proto.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Clannco design tokens — shared by every page.
+   Loaded before the page stylesheet. The page stylesheet only adds what differs; this file holds the brand tokens, the scales,
+   and every component rule the homepage and automation pages share.
+   ========================================================================== */
+:root{
+  /* BRAND — palette, type families, radius. Unchanged values; defined once here. */
+  --forest:#0D1F17;
+  --forest-2:#143326;
+  --forest-3:#183F2F;
+  --forest-4:#1E4B38;
+  --brass:#C9A24A;
+  --brass-2:#E6C766;
+  --cream:#F3EFE2;
+  --cream-2:#FFF8E8;
+  --sage:#A8B4A3;
+  --moss:#5C755E;
+  --ink:#07120D;
+  --line:rgba(243,239,226,.14);
+  --line-dark:rgba(13,31,23,.13);
+  --shadow:0 28px 90px rgba(0,0,0,.34);
+  --radius:34px;
+
+  /* SPACING — 4px base. --sp-11 preserves the historic .section padding (118px). */
+  --sp-1:4px;   --sp-2:8px;   --sp-3:12px;  --sp-4:16px;  --sp-5:24px;
+  --sp-6:32px;  --sp-7:40px;  --sp-8:56px;  --sp-9:72px;  --sp-10:96px;
+  --sp-11:118px; --sp-12:152px; --sp-13:200px;
+  --section-y: clamp(64px, 9vw, var(--sp-11));
+  --section-y-lg: clamp(80px, 12vw, var(--sp-12));
+  --gutter: clamp(20px, 4vw, 48px);
+  --measure: 68ch;
+
+  /* TYPE SCALE — fluid */
+  --fs-mono:    clamp(.62rem, .55rem + .2vw, .72rem);
+  --fs-xs:      clamp(.78rem, .74rem + .2vw, .86rem);
+  --fs-sm:      clamp(.88rem, .84rem + .25vw, .98rem);
+  --fs-base:    clamp(1rem, .96rem + .3vw, 1.12rem);
+  --fs-lead:    clamp(1.06rem, 1rem + .5vw, 1.28rem);
+  --fs-h4:      clamp(1.24rem, 1.1rem + .8vw, 1.62rem);
+  --fs-h3:      clamp(1.5rem, 1.2rem + 1.5vw, 2.2rem);
+  --fs-h2:      clamp(4rem, 8vw, 8rem);          /* matches .section-head h2 today */
+  --fs-h1:      clamp(4.6rem, 12.5vw, 12rem);    /* matches .hero h1 today */
+  --lh-display: .82;  --lh-tight: .86;  --lh-body: 1.6;
+  --tr-display: -.055em;  --tr-mono: .15em;
+
+  /* Z-INDEX — one ladder for the whole site, in the stacking order the pages actually use.
+     Float buttons sit under the mobile drawer; the cursor stays visible over the preloader. */
+  --z-raised:1;  --z-raised-2:2;  --z-dropdown:200;  --z-fab:800;  --z-fab-2:801;
+  --z-drawer:999;  --z-nav:1000;  --z-progress:1002;
+  --z-transition:9500;  --z-preloader:10000;  --z-cursor:10001;
+
+  /* DURATION (CSS) + unitless twins for GSAP */
+  --d-fast:.22s;  --d-base:.36s;  --d-slow:.6s;  --d-slower:.9s;  --d-cinematic:1.4s;
+  --gd-fast:.22;  --gd-base:.36;  --gd-slow:.6;  --gd-slower:.9;  --gd-cinematic:1.4;
+
+  /* EASING — --e-out is the cubic-bezier(.22,1,.36,1) already used throughout */
+  --e-out:      cubic-bezier(.22,1,.36,1);
+  --e-std:      cubic-bezier(.22,.61,.36,1);
+  --e-in-out:   cubic-bezier(.76,0,.24,1);
+  --e-expo-out: cubic-bezier(.16,1,.3,1);
+  --e-back:     cubic-bezier(.34,1.56,.64,1);
+
+  /* ELEVATION / SHAPE — additions alongside the existing --shadow and --radius */
+  --radius-sm:14px;  --radius-md:22px;  --radius-pill:999px;
+  --shadow-sm:0 8px 24px rgba(0,0,0,.18);
+  --shadow-md:0 16px 48px rgba(0,0,0,.26);
+}
+@media (prefers-reduced-motion: reduce){
+  :root{ --d-fast:1ms; --d-base:1ms; --d-slow:1ms; --d-slower:1ms; --d-cinematic:1ms;
+         --gd-fast:0; --gd-base:0; --gd-slow:0; --gd-slower:0; --gd-cinematic:0; }
+}
+
+/* ==========================================================================
+   Shared components — identical on the homepage and automation pages.
+   Page stylesheets load after this file and only add or override.
+   ========================================================================== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{
+  font-family:var(--body);
+  background:var(--forest);
+  color:var(--cream);
+  overflow-x:clip;
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.display{
+  font-family:var(--headline);
+  font-weight:900;
+  line-height:.82;
+  letter-spacing:-.055em;
+  text-transform:uppercase;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-family:var(--headline);
+  font-weight:900;
+  text-transform:uppercase;
+  font-size:1.4rem;
+  letter-spacing:-.03em;
+}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.whatsapp-fab svg{width:29px;height:29px;fill:#fff;display:block}
+@media(max-width:760px){#translateBtn{left:16px;right:auto}}
+@media(max-width:760px){#translateMenu{left:16px;right:auto}}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.cursor-ring.is-down{transform:scale(.82)}
+@media (hover:hover) and (pointer:fine){body.cursor-on{cursor:none}}
+@media (hover:hover) and (pointer:fine){body.cursor-on input:not([type=range]),body.cursor-on select,body.cursor-on textarea{cursor:auto}}
+.nav-cluster{display:flex;align-items:center;gap:14px}
+.nav-dropdown.open .nav-drop-btn .chev{transform:rotate(180deg)}
+.mobile-drop{border-bottom:1px solid var(--line)}
+.mobile-drop.open .mobile-drop-btn .mchev{transform:rotate(180deg)}
+.magnetic{will-change:transform}
+.btn-label{display:inline-flex;align-items:center;gap:10px;will-change:transform}
+html{overflow-x:clip}
+@media(prefers-reduced-motion:reduce){.cursor-dot,.cursor-ring,.scroll-progress{display:none!important}}
+@keyframes morphHint{0%,100%{opacity:.4;transform:translateX(-50%) translateY(0)}50%{opacity:.9;transform:translateX(-50%) translateY(6px)}}

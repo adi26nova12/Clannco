@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Motion layer — loaded after the page stylesheet so these rules win ties.
+   Everything here is scoped to .has-js or is purely additive, so the page
+   still reads correctly if scripts never run.
+   ========================================================================== */
+
+/* Do not add `scroll-behavior:smooth` to html in any stylesheet. ScrollTrigger reads it once, then
+   re-applies it inline after every refresh, which turns Lenis's per-frame scrolling and ScrollTrigger's
+   own position restores into native smooth-scroll animations. In-page links are already smoothed in JS
+   (scroll.js → initAnchors). */
+
+/* FAQ — GSAP animates to the answer's real height (the old max-height:180px clipped long answers). */
+.has-js .faq-a{display:block;max-height:none;height:0;overflow:hidden;transition:none}
+.has-js .faq-item.open .faq-a{height:auto;max-height:none}
+.has-js .faq-item:not(.open) .faq-a{padding-top:0;padding-bottom:0}
+
+/* Hero waits for its display font (see intro.js). visibility:hidden, not just opacity, so it also holds
+   under reduced motion, where the reveal layer is otherwise shown immediately. */
+.has-js.hero-wait .hero .reveal{visibility:hidden}
+
+/* Anchor targets clear the fixed nav, including native jumps without JavaScript (JS uses the same 80px). */
+[data-barba="container"] [id]{scroll-margin-top:80px}
+
+/* Repeat visits in a session skip the preloader entirely (flag set by the head script before first paint). */
+.intro-seen .preloader{display:none}
+/* First-visit handoff: the preloader's glow fades while its logo flies into the nav. */
+.preloader.is-handing-off::after{opacity:0;transition:opacity .4s ease}
+
+/* Page transition curtain — forest, with a brass edge line. Below the cursor, above everything else. */
+.page-curtain{position:fixed;inset:0;z-index:var(--z-transition);background:var(--forest);clip-path:inset(100% 0 0 0);pointer-events:none;visibility:hidden}
+.page-curtain.is-active{visibility:visible;pointer-events:auto}
+.page-curtain-edge{position:absolute;left:0;right:0;top:50%;height:2px;background:linear-gradient(90deg,var(--brass),var(--brass-2));transform:scaleX(0);transform-origin:left center}
+
+/* Screen-reader-only live region that announces the new page after a transition. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* Headings receive focus programmatically after a transition; no ring for that. */
+h1[tabindex="-1"]:focus{outline:none}
+
+/* Hero WebGL tier — shares the 2D canvas's slot and fades in over it once its first frame is drawn. */
+.hero-webgl{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0}
+
+/* Morph centrepiece — ScrollTrigger pins it on desktop, so the CSS sticky + 380vh scroll track go.
+   The ≤900px layout in the page stylesheet is untouched. */
+.morph-stage{height:auto}
+.morph-sticky{position:relative}
+.morph-step:focus-visible{outline:2px solid var(--brass-2);outline-offset:6px;border-radius:4px}
+
+/* Line masks for SplitText headline reveals. Display type sits on a line-height below 1, so the mask
+   is padded to keep ascenders and descenders from being cut while the lines rise. */
+.split-line-mask{padding-block:.14em;margin-block:-.14em}
+
+/* Pointer spotlight on segment cards (position set from JS). */
+.segment-card,.segment-card:hover{
+  background-image:radial-gradient(260px circle at var(--spot-x,-400px) var(--spot-y,-400px),rgba(201,162,74,.12),transparent 70%);
+}

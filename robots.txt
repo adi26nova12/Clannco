@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /clannco-design-system.html
+Disallow: /_proto/
 
 Sitemap: https://clannco.com/sitemap.xml
