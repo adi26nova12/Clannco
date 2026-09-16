@@ -451,3 +451,65 @@ body[data-page="vertical"] .faq-item{border-radius:0;border-color:var(--hairline
 @media (prefers-reduced-motion:reduce){
   .is-console .field.is-invalid,.is-console.is-ready button[type="submit"],.is-console.is-sending .console-progress i{animation:none}
 }
+
+/* ======================= MOBILE ======================= */
+@media (max-width:900px){
+  /* the six-step section: the stage draws the shapes, so the empty canvas box goes */
+  .stage-on .morph-canvas{display:none}
+  .morph-sticky{padding:70px 0 56px}
+  .morph-captions{min-height:0}
+  .morph-cap{position:relative;display:none}
+  .morph-cap.is-active{display:block}
+  /* corner brackets sat on top of content at the screen edge */
+  .hud-corner{display:none}
+  /* the floating CTA is fixed to the screen (a generic .btn rule had made it sit in the page) */
+  .btn.float-cta{position:fixed}
+}
+@media (max-width:760px){
+  /* nav: a solid bar, so content no longer scrolls underneath the logo */
+  .nav,.nav.scrolled{background:rgba(7,18,13,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline-soft)}
+  /* hero headline stays inside the screen */
+  .hero h1 .hl-2{margin-left:0}
+  /* tighter vertical rhythm */
+  .section,.segment-picker,.final,.intro,.outcome-strip,.statement,.services-intro,.svc-block,.pricing-section,.faq-section,.cta-section{padding-top:64px;padding-bottom:64px}
+  .diff-inner{padding:72px 18px 32px}
+  .diff-section{min-height:0}
+  .segment-head{margin-bottom:28px}
+  .segment-grid{gap:12px}
+  .segment-card,.segment-card:hover{min-height:0;padding:24px}
+  .segment-card::after{font-size:3rem;top:12px;right:18px}
+  .segment-card h3{margin-top:28px;font-size:1.9rem}
+  .leak-card{min-height:0;padding:22px}
+  .leak-card .tag{margin-bottom:18px}
+  .engine-row{padding:20px;gap:10px}
+  .engine-icon{font-size:3.2rem}
+  .outcome-num{font-size:clamp(4.2rem,26vw,7rem)}
+  .intro-grid,.proof > .container,.pricing > .container{padding:24px 18px}
+  .smm-how{grid-template-columns:1fr;gap:10px;padding:20px}
+  .smm-how-label{white-space:normal}
+  .smm-quote{font-size:clamp(1.8rem,9vw,2.6rem)}
+  .ai-platforms{gap:8px}
+  .svc-copy{padding:22px}
+  .visual-inner{padding:18px}
+  .statement h2{font-size:clamp(2rem,9vw,3rem)}
+  .final-copy{padding:26px 20px}
+  .final-copy h2{font-size:clamp(2.6rem,12vw,3.8rem)}
+  .audit-form,.contact-form{padding:24px 18px}
+  .is-console .console-count{right:18px}
+  .is-console h3{padding-right:56px;font-size:clamp(1.8rem,8vw,2.4rem)}
+  /* floating CTA above the page bottom, clear of the WhatsApp button */
+  .btn.float-cta{left:16px;right:84px;bottom:16px;min-height:52px;justify-content:center}
+  .whatsapp-fab{bottom:16px;right:16px}
+  .site-footer{padding-bottom:84px}
+  /* terms: the contents list becomes a swipeable row */
+  .legal-hero{padding:110px 0 32px}
+  .legal-toc{display:flex;gap:8px;overflow-x:auto;padding:10px;margin:0 -2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .legal-toc::-webkit-scrollbar{display:none}
+  .legal-toc a{flex:0 0 auto;padding:8px 12px;border:1px solid var(--hairline-soft);white-space:nowrap;font-size:.85rem}
+  .legal-toc a.is-active{border-color:var(--brass-2)}
+  .legal-layout{gap:18px}
+  .legal-body{padding:22px 18px}
+  .legal-body h2{gap:10px}
+}
+@media (max-width:900px){.btn.float-cta{transition:transform .45s var(--e-out)}.btn.float-cta.is-hidden{transform:translateY(170%);pointer-events:none}}
+.legal-body h2 span{margin-right:10px;flex:0 0 auto}

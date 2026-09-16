@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 // fileURLToPath decodes the URL (e.g. the space in "Clannco v2" arrives as %20) and handles drive letters.
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
-const PORT = Number(process.argv[2]) || 5173;
+const PORT = Number(process.env.PORT) || Number(process.argv[2]) || 5173;
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.mjs': 'text/javascript; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml',

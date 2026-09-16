@@ -4,8 +4,9 @@
     {
       "name": "clannco-site",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["tools/dev-server.mjs", "5173"],
-      "port": 5173
+      "runtimeArgs": ["tools/dev-server.mjs"],
+      "port": 5173,
+      "autoPort": true
     }
   ]
 }
